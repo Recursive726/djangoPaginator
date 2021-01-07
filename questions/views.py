@@ -14,7 +14,7 @@ def question_list(request,*args):
 	else:
 		pagination=list(paginations)[int(args[0])-1]
 		
-	check=dir(pagination)
+	
 	return render (request,'questions/home.html',{'pagination':pagination})
 	
 
