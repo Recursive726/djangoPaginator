@@ -1,0 +1,44 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Questions</title>
+  </head>
+  <body class="bg-light">
+    <div class="container">
+    <div class="row">
+    <div class="col"><h1>Question Paper</h1>
+
+    {% for pagi in pagination %}
+      <h1> {{ pagi.question_number }}</h1>
+      <p> {{ pagi.question_content}}</p>
+      <h5> {{ pagi.created_date }}</h5>
+
+
+    {% endfor %}
+   
+    <div>
+      {% if pagination.has_previous%}
+      <span><a href="{{pagination.previous_page_number}}"> {{pagination.previous_page_number }}</a></span>
+      {% endif %}
+      <span>{{pagination.number}}</span>
+      {% if pagination.has_next%}
+      <span><a href="{{pagination.next_page_number}}"> {{pagination.next_page_number }}</a></span>
+      {% endif %}
+    </div>
+
+    </div>
+    </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+  </body>
+</html>
